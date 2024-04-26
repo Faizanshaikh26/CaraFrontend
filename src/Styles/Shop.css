@@ -1,0 +1,28 @@
+.Shop-section {
+  height: 40vh;
+
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 14px;
+}
+.Shop-section h2,
+.Shop-section p {
+  color: white;
+}
+
+@media screen and (max-width: 477px) {
+  .Shop-section {
+    height: 20vh;
+  }
+  .Shop-section h2{
+    margin-top: 20px;
+    font-size: 35px;
+    
+  }
+  .Shop-section p{
+    font-size: 20px;
+  }
+}

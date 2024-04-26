@@ -1,0 +1,109 @@
+.Hero-section {
+  /* background-image: url("src/Images/Hero.png"); */
+  height: 90vh;
+  background-size: cover;
+  background-position: top 25% right 0;
+  padding: 0px 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.Hero-section h4 {
+  padding-bottom: 15px;
+}
+.Hero-section h1 {
+  color: #088178;
+}
+.Hero-section button {
+  /* background-image: url("src/Images/Button-cover.png"); */
+  background-color: transparent;
+  color: #088178;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  cursor: pointer;
+}
+.Feautures {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.Features-box {
+  width: 180px;
+  text-align: center;
+  padding: 25px 15px;
+  box-shadow: 20px 20px 14px rgba(0, 0, 0, 0.03);
+  border: 1px solid #cce7d0;
+  cursor: pointer;
+}
+.Features-box img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.Features-box h6 {
+  display: inline-block;
+  padding: 9px 8px 6px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  color: #088178;
+  background: #fddde4;
+}
+.Features-box:hover {
+  box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+}
+.Features-box:nth-child(2) h6 {
+  background: #cdebbc;
+}
+.Features-box:nth-child(3) h6 {
+  background: #d1e8f2;
+}
+.Features-box:nth-child(4) h6 {
+  background: #cdd4f8;
+}
+.Features-box:nth-child(5) h6 {
+  background: #f6dbf6;
+}
+.Features-box:nth-child(6) h6 {
+  background: #fff2e5;
+}
+@media screen and (max-width: 799px) {
+  .Hero-section {
+    height: 70vh;
+    padding: 0 80px;
+    background-position: top 30% right 30%;
+  }
+  .Feautures {
+    justify-content: center;
+  }
+  .Features-box {
+    width: 150px;
+    margin: 5px 4px;
+  }
+  .Features-box img {
+    margin-bottom: 9px;
+  }
+}
+
+@media screen and (max-width: 477px) {
+  .Padding-1 {
+    padding: 40px;
+  }
+  .Hero-section {
+    height: 70vh;
+    padding: 0 17px;
+    background-position: top 25% right 30%;
+  }
+  .Hero-section h4 {
+    font-size: 30px;
+    margin-top: 50px;
+  }
+  .Hero-section h2 {
+    margin-top: 20px;
+  }
+  .Features-box {
+    width: 137px;
+    text-align: center;
+    padding: 20px 10px;
+  }
+}

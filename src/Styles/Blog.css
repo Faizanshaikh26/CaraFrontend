@@ -1,0 +1,103 @@
+.Blog-section {
+    /* background-image: url("src/Images/Banner10.jpg"); */
+    height: 40vh;
+    /* width: 100%; */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+  }
+  .Blog-section h2,
+  .Blog-section p {
+    color: white;
+  }
+  
+  .Blog {
+    padding: 150px 150px 0 150px;
+  }
+  
+  .Blog .Blog-Box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 90px;
+  }
+  .Blog .blog-img {
+    width: 50%;
+    margin-right: 40px;
+  }
+  .Blog img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .Blog .Blog-details {
+    width: 50%;
+  }
+  .Blog .Blog-details a {
+    text-decoration: none;
+    font-size: 11px;
+    color: black;
+    font-weight: 700;
+    position: relative;
+    transform: 0.3s;
+  }
+  .Blog .Blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 4px;
+    right: -60px;
+  }
+  .Blog .Blog-details a:hover {
+    color: #088178;
+  }
+  .Blog .Blog-details a:hover:after {
+    background-color: #088178;
+  }
+  .Blog .Blog-details h1 {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 700;
+    color: #c9cbce;
+    z-index: -999;
+  }
+  
+  @media (max-width: 477px) {
+    .Blog {
+      padding: 100px 20px 0 20px;
+    }
+    .Blog-section {
+    
+      height: 25vh;
+    
+    }
+    .Blog .Blog-Box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .Blog .blog-img {
+      margin-right: 0;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .Blog .Blog-details {
+      width: 100%;
+    }
+    .Blog-section h2{
+      margin-top: 20px;
+      font-size: 35px;
+    }
+    .Blog-section p {
+      
+      font-size: 20px;
+  }
+  }
+  

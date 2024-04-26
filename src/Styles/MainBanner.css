@@ -1,0 +1,169 @@
+.M-Banner {
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .Banner-Box,
+  .Banner-Box2 {
+    /* background-image: url("src/Images/Banner2.jpg"); */
+    cursor: pointer;
+    min-width: 650px;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-position: center;
+    background-size: cover;
+    padding: 30px;
+  }
+  /* .Banner-Box2 {
+    background-image: url("src/Images/Banner3.jpg");
+  } */
+  .Banner-Box button,
+  .Banner-Box2 button {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.2s;
+  }
+  .Banner-Box:hover button,
+  .Banner-Box2:hover button {
+    background: #088178;
+    color: white;
+    border: 1px solid #088178;
+  }
+  .M-Banner h4 {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .M-Banner h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .M-Banner span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+  .BM-Banner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 80px;
+  }
+  
+  .BM-Banner .BM-box1,
+  .BM-box2,
+  .BM-box3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 31%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  /* .BM-box1 {
+    background-image: url("src/Images/Banner4.jpg");
+  }
+  .BM-box2 {
+    background-image: url("src/Images/Banner5.jpg");
+  }
+  .BM-box3 {
+    background-image: url("src/Images/Banner6.jpg");
+  } */
+  .BM-box1 h2,
+  .BM-box2 h2,
+  .BM-box3 h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+  }
+  .BM-box1,
+  .BM-box2,
+  .BM-box3 h3 {
+    color: #ec544e;
+    font-weight: 900;
+    font-size: 15px;
+  }
+  
+  @media screen and (max-width: 799px) {
+    .M-Banner {
+      padding: 40px;
+    }
+    .Banner-Box,
+    .Banner-Box2 {
+      min-width: 100%;
+      height: 30vh;
+      background-position: top 20% right 0;
+      margin-bottom: 8px;
+    }
+    .BM-Banner {
+      padding: 0 40px;
+    }
+  
+    .BM-Banner .BM-box1,
+    .BM-box2,
+    .BM-box3 {
+      width: 30%;
+    }
+    .BM-box1 h2,
+    .BM-box2 h2,
+    .BM-box3 h2 {
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: -10px;
+    }
+    .BM-box1 h3,
+    .BM-box2 h3,
+    .BM-box3 h3 {
+      font-weight: 700;
+      font-size: 15px;
+    }
+  }
+  @media screen and (max-width: 477px) {
+    .M-Banner {
+      padding: 40px;
+    }
+    .Banner-Box,
+    .Banner-Box2 {
+      width: 100%;
+      height: 30vh;
+      background-position: top 0 right 40%;
+    }
+    .M-Banner h4 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .M-Banner h2 {
+      color: white;
+      font-size: 20px;
+    }
+    .M-Banner span {
+      font-size: 15px;
+      padding-bottom: 8px;
+    }
+    .BM-Banner {
+      display: block;
+    }
+    .BM-Banner .BM-box1,
+    .BM-box2,
+    .BM-box3 {
+      width: 100%;
+    }
+  }
+  

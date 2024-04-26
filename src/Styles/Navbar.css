@@ -1,0 +1,141 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background: #e3e6f3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+
+#Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Navbar button {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: white;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
+  outline: none;
+  background-color: #088178;
+}
+
+#Navbar li {
+  padding: 0 20px;
+  position: relative;
+  text-decoration: none;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+#Navbar li:hover:not(button),
+.active {
+  color: #088178;
+}
+
+.active::after,
+#Navbar li:hover:not(button)::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+#Mobile {
+  display: none;
+  align-items: center;
+}
+ul li .cart-item-count {
+  color: black;
+  font-size: 13px;
+  position: absolute;
+  bottom: 9px;
+  right: 12px;
+}
+
+#X-Bar {
+  display: none;
+}
+
+@media screen and (max-width: 799px) {
+  #Navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    justify-content: flex-start;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: #e3e6f3;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.5s ease;
+    z-index: 999;
+    
+  }
+  .Header img {
+    position: relative;
+    right: 50px;
+  }
+  #Navbar.Active-Menu {
+    right: 0;
+  }
+  #Navbar li {
+    margin-bottom: 25px;
+  }
+  #Mobile {
+    display: block;
+    align-items: center;
+  }
+  #Mobile .Mobile {
+    position: relative;
+    bottom: 10px;
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+  }
+  #Mobile i {
+    color: #1a1a1a;
+    font-size: 25px;
+    padding-left: 20px;
+  }
+  #Bar {
+    margin-right: -40px;
+  }
+  #X-Bar {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    font-size: 30px;
+  }
+  #Mobile.shopping {
+    color: red;
+  }
+  body.Navbar-Active {
+    overflow: hidden;
+  }
+}

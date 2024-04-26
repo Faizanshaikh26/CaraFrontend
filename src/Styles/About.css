@@ -1,0 +1,81 @@
+.About-section {
+    /* background-image: url("src/Images/Banner7.png"); */
+    height: 40vh;
+    /* width: 100%; */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+  }
+  .About-section h2,
+  .About-section p {
+    color: white;
+  }
+  .About {
+    display: flex;
+    align-items: center;
+  }
+  .About img {
+    width: 50%;
+    height: auto;
+  }
+  .About div {
+    padding-left: 40px;
+  }
+  .About-app
+  {
+      text-align: center;
+  }
+  .About-app .Video
+  {
+      width: 70%;
+      height: 100%;
+      margin: 30px auto 0 auto;
+  
+  }
+  .About-app .Video video
+  {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+  }
+  
+  @media (max-width:477px) {
+      .About
+      {
+          flex-direction: column;
+      }
+      .About-section {
+       
+        height: 25vh;
+        
+      }
+      .About img
+      {
+          width: 100%;
+          margin-bottom: 20px;
+      }
+      .About div 
+      {
+       padding-left: 0px;   
+      }
+      .About-app .Video
+      {
+          width: 100%;
+      }
+
+  
+
+      .About-section h2{
+        margin-top: 20px;
+        font-size: 35px;
+
+      }
+      .About-section p{
+        font-size: 20px;
+
+      }
+  }
+  

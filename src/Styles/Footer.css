@@ -1,0 +1,155 @@
+.News-letters {
+  margin: 40px 0;
+  padding: 40px 80px;
+  /* background-image: url("src/Images/Banner8.png"); */
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.news-text h4 {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+.news-text p {
+  color: #818ea0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.news-text p span {
+  color: #ffbd27;
+}
+.news-form {
+  padding: 10px 0 0 0;
+  display: flex;
+}
+.news-form input {
+  width: 320px;
+  height: 40px;
+  border: 1px solid transparent;
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 14px;
+}
+.news-form button {
+  background-color: #088178;
+  white-space: nowrap;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  height: 40px;
+  width: 100px;
+  border: 1px solid transparent;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+}
+
+footer {
+  padding: 40px 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+footer .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+footer .Logo {
+  margin-bottom: 30px;
+}
+footer h4 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+footer p {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+footer .col .row {
+  padding: 10px 0;
+}
+footer .col img {
+  margin-top: 20px;
+}
+
+footer .col .row img {
+  border: 2px solid #088178;
+  margin: 0 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+footer .follow i {
+  color: #465b52;
+  padding-right: 4px;
+  cursor: pointer;
+}
+footer .follow i:hover,
+footer .col ul li:hover {
+  color: #088178;
+}
+footer .col ul li {
+  list-style: none;
+  margin: 8px 0;
+  cursor: pointer;
+  color: #222;
+}
+footer .Copyright {
+  width: 100%;
+  text-align: center;
+
+  /* padding: 10px 40%; */
+}
+footer .Copyright i {
+  color: red;
+}
+footer .Copyright p {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 799px) {
+  .News-letters {
+    padding: 40px 40px;
+  }
+  .news-text h4 {
+    font-size: 20px;
+  }
+  .news-form input {
+    width: 220px;
+    height: 38px;
+    padding: 8px;
+    font-size: 13px;
+  }
+  .news-form button {
+    height: 38px;
+    width: 80px;
+  }
+  footer {
+    padding: 10px 40px;
+  }
+}
+
+@media screen and (max-width: 477px) {
+  .News-letters {
+    padding: 20px;
+    display: block;
+  }
+  footer .Copyright {
+    width: 100%;
+    text-align: start;
+  }
+  footer {
+    padding: 14px;
+  }
+}

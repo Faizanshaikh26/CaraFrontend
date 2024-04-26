@@ -1,0 +1,78 @@
+.Banner {
+  margin: 40px 0;
+  display: flex;
+  /* background-image: url("src/Images/Banner1.jpg"); */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 35vh;
+  /* background-position: center;
+    background-size: cover; */
+}
+.Banner h4 {
+  color: white;
+  font-size: 17px;
+}
+.Banner h2 {
+  color: white;
+  font-size: 30px;
+  padding: 10px 0;
+}
+.Banner span {
+  color: #ef3636;
+}
+.Banner button {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+.Banner button:hover {
+  background: #088178;
+  color: white;
+}
+
+@media screen and (max-width: 799px) {
+  .Banner {
+    margin: 20px 0;
+    height: 28vh;
+  }
+  .Banner h4 {
+    font-size: 15px;
+  }
+  .Banner h2 {
+    font-size: 23px;
+    padding: 5px 0;
+  }
+
+  .Banner button {
+    font-size: 12px;
+    padding: 15px 30px;
+  }
+}
+@media screen and (max-width: 477px) {
+  .Banner {
+    margin: 20px 0;
+    height: 27vh;
+  }
+  .Banner h4 {
+    font-size: 17px;
+    padding-top: 10px;
+  }
+  .Banner h2 {
+    font-size: 15px;
+  }
+
+  .Banner button {
+    font-size: 12px;
+    padding: 15px 30px;
+  }
+}

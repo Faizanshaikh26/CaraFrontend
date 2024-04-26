@@ -1,0 +1,16 @@
+.Arrival-products
+{
+    text-align: center;
+}
+.Arrival-products h2 {
+    font-size: 30px;
+  }
+  .Arrival-products p{
+    font-size: 20px;
+  }
+@media screen and (max-width: 799px) {
+ .Arrival-products{
+    display: inline;
+ }
+}
+

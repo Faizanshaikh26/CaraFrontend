@@ -1,0 +1,125 @@
+/* Add your CSS for the signup form here */
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../Images/Banner6.jpg");
+    background-size: cover;
+  }
+  
+  .Form-details {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .password-input-container {
+    position: relative;
+  }
+  
+  .signup-input {
+    width: calc(100% - 40px);
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Change button color as needed */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #0056b3; /* Change button hover color as needed */
+  }
+  
+  p {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  p span {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  p span:hover {
+    text-decoration: underline;
+  }
+  
+ 
+ 
+  
+  /* Media queries */
+  @media screen and (max-width: 788px) {
+    .Form-details {
+      padding: 20px;
+    }
+    .signup-container
+    {background-position: top 10% right 10%;
+    }
+  }
+  
+  @media screen and (max-width: 488px) {
+    .Form-details {
+      padding: 10px;
+    }
+    .signup-container
+    {background-position: top 10% right 20%;
+    }
+    .signuptoast
+    {
+        width: 250px;
+        height: 50px;
+        font-size: 13px;
+        padding: 10px;
+        margin: 10px 80px;
+    }
+  
+  }
+  
