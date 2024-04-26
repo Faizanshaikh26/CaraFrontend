@@ -7,6 +7,7 @@ import Arrivalproduct from './Components/Arrivalproduct'
 import Banner from './Components/Banner'
 import MainBanner from './Components/MainBanner'
 import Footer from './Components/Footer'
+import ResetPassword from './Pages/ResetPassword'
 
 
 
@@ -21,6 +22,7 @@ function Home() {
    <Banner/>
    <MainBanner/>
    <Footer/>
+   <ResetPassword/>
 
    
    </>
