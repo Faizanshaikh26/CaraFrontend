@@ -52,8 +52,13 @@ function ArrivalSingleProduct() {
       })
       
     } else {
-      alert("Please log in to add items to the cart.");
-      window.location.replace("/login"); 
+      toast.error("Please log in to add items to the cart.",{
+          autoClose:1000,
+          className:"singletoast",
+          position:"top-center"
+
+      });
+      // window.location.replace("/login"); 
     }};
 
   const handledecrement=()=>{

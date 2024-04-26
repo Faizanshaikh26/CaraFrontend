@@ -1,0 +1,1 @@
+import{j as o,N as n}from"./index-WIvKTDOy.js";function t(){return o.jsxs(o.Fragment,{children:[o.jsx(n,{}),o.jsx("div",{className:"product-not-found",children:o.jsxs("div",{className:"product-not-found-content",children:[o.jsx("h2",{children:"Product Not Found"}),o.jsx("p",{children:"The product you are looking for does not exist."})]})})]})}export{t as P};

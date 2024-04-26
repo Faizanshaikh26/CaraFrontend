@@ -34,10 +34,6 @@ function App() {
           <Routes>
             <Route path="/singleproduct/:productId" element={<LazySingleProduct />} />
             <Route path="/:ArrivalId" element={<LazyArrivalSingleProduct />} />
-
-
-
-
             <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} />
