@@ -4,21 +4,26 @@ import "../Styles/ForgotPassword.css";
 import Navbar from "../Components/Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from "@emotion/react";
+import { ClipLoader } from "react-spinners";
 const BASE_URL="https://carabackend.onrender.com";
 
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
+  const [loading, setLoading] = useState(false); // State to track loading state
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
 
+    setLoading(true); // Set loading state to true when password reset process starts
   
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
       setErrorMessage("Invalid email format");
+      setLoading(false); // Reset loading state
       return;
     }
    
@@ -45,10 +50,12 @@ function ForgotPassword() {
         position:"top-center"
         
       })
-      setErrorMessage(null)
+      setErrorMessage(null);
+      setLoading(false); // Reset loading state
     } catch (error) {
       console.log("Error in ForgotPassword:", error);
       setErrorMessage(error.message); 
+      setLoading(false); // Reset loading state
       toast.error(error,{
         autoClose:1000,
         className:'forgottoast'
@@ -73,8 +80,20 @@ function ForgotPassword() {
             
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <button type="submit" className="forgot-password-button">
-            Reset Password
+          <button type="submit" className="forgot-password-button" disabled={loading}>
+            {loading ? (
+              <>
+              
+                <ClipLoader
+                  color={"#ffffff"}
+                  loading={true}
+                  css={override}
+                  size={25}
+                />
+              </>
+            ) : (
+              "Reset Password"
+            )}
           </button>
         </form>
         
@@ -87,3 +106,8 @@ function ForgotPassword() {
 }
 
 export default ForgotPassword;
+
+const override = css`
+  display: inline-block;
+  vertical-align: middle;
+`;

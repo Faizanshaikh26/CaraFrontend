@@ -5,9 +5,12 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { usecart } from "../Context/CartContext";
 const BASE_URL="https://carabackend.onrender.com";
+import { css } from "@emotion/react";
+import { ClipLoader } from "react-spinners";
 
 function Proced() {
   const { cartItems, cartTotal, setCartTotal, removeFromCart } = usecart();
+  const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
     firstName: "",
@@ -267,6 +270,21 @@ function Proced() {
 
             <p>Return to cart</p>
             <button type="submit">Continue To Payment</button>
+            <button type="submit"  disabled={loading}>
+            {loading ? (
+              <>
+              
+                <ClipLoader
+                  color={"#ffffff"}
+                  loading={true}
+                  css={override}
+                  size={25}
+                />
+              </>
+            ) : (
+              "Continue to Payment"
+            )}
+          </button>
           </form>
         </div>
 

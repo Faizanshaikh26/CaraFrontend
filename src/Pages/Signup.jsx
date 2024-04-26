@@ -1,27 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import '../Styles/Signup.css'
+import '../Styles/Signup.css';
 import Navbar from "../Components/Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from "@emotion/react";
+import { ClipLoader } from "react-spinners";
 const BASE_URL="https://carabackend.onrender.com";
 
-
 function Signup() {
-
   const [formdata, setdata] = useState({
     Username: "",
     Email: "",
     password: "",
     showPassword: false
   });
+  const [loading, setLoading] = useState(false); // State to track loading state
 
   const signup = async (e) => {
     e.preventDefault();
-    console.log("Signup function ecev", formdata);
+    setLoading(true); // Set loading state to true when signup process starts
     if (!formdata.password) {
       toast.error("Please enter a password", { autoClose: 1000, className: "logintoast" ,   position:"top-center"});
+      setLoading(false); // Reset loading state
       return;
     }
     if(!formdata.Username){
@@ -29,15 +30,17 @@ function Signup() {
         autoClose:1000,
         className:"signuptoast",
         position:"top-center"
-      })
+      });
+      setLoading(false); // Reset loading state
       return;
     }
     if(!formdata.Email){
-      toast.error("Please enter a email",{
+      toast.error("Please enter an email",{
         autoClose:1000,
-        className:"logintoast",   position:"top-center"
-
-      })
+        className:"logintoast",
+        position:"top-center"
+      });
+      setLoading(false); // Reset loading state
       return;
     }
     let responsedata;
@@ -58,6 +61,7 @@ function Signup() {
     else {
       toast.error(responsedata.error, { autoClose: 1000, className: "logintoast" });
     }
+    setLoading(false); // Reset loading state after signup process completes
   };
 
   const handlechange = (e) => {
@@ -66,6 +70,7 @@ function Signup() {
   const togglePasswordVisibility = () => {
     setdata({ ...formdata, showPassword: !formdata.showPassword });
   };
+
   return (
     <>
       <ToastContainer />
@@ -75,7 +80,7 @@ function Signup() {
         <div className="Form-details">
           <form onSubmit={(e) => e.preventDefault()}>
             <span className="signup-title">Sign Up</span>
-            <h2>To Cara Ecomerce</h2>
+            <h2>To Cara Ecommerce</h2>
             <input
               type="text"
               placeholder="Enter Your Username"
@@ -107,12 +112,18 @@ function Signup() {
               ></i>
             </div>
             <p>
-              Already have a account...
+              Already have an account...
               <Link to="/login">
                 <span>Login here</span>
               </Link>
             </p>
-            <button className='signup-button' onClick={signup}>Signup</button>
+            <button className='signup-button' onClick={signup} disabled={loading}>
+              {loading ? (
+                <ClipLoader color={"#ffffff"} loading={true} css={override} size={25} />
+              ) : (
+                "Signup"
+              )}
+            </button>
           </form>
         </div>
       </div>
@@ -121,3 +132,8 @@ function Signup() {
 }
 
 export default Signup;
+
+const override = css`
+  display: inline-block;
+  vertical-align: middle;
+`;
