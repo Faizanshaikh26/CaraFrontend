@@ -11,6 +11,7 @@ import Footer from './Components/Footer'
 
 
 
+
 function Home() {
   return (
    <>
@@ -22,7 +23,7 @@ function Home() {
    <Banner/>
    <MainBanner/>
    <Footer/>
-  
+
    </>
   )
 }

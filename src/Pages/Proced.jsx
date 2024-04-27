@@ -4,13 +4,14 @@ import { loadStripe } from "@stripe/stripe-js";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { usecart } from "../Context/CartContext";
-const BASE_URL="https://carabackend.onrender.com";
-import { css } from "@emotion/react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ClipLoader } from "react-spinners";
+
+const BASE_URL="https://carabackend.onrender.com";
 
 function Proced() {
   const { cartItems, cartTotal, setCartTotal, removeFromCart } = usecart();
-  const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
     firstName: "",
@@ -24,13 +25,13 @@ function Proced() {
   });
 
   const [formErrors, setFormErrors] = useState({});
+  const [loading, setLoading] = useState(false); // State to track loading state
 
   useEffect(() => {
     const total = cartItems.reduce((sum, item) => {
-      const itemPrice =
-        typeof item.price === "string"
-          ? parseFloat(item.price.replace("$", ""))
-          : item.price;
+      const itemPrice = typeof item.price === "string"
+        ? parseFloat(item.price.replace("$", ""))
+        : item.price;
       const itemQuantity = parseInt(item.quantity, 10);
 
       if (!isNaN(itemPrice) && !isNaN(itemQuantity)) {
@@ -44,82 +45,26 @@ function Proced() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
+    setUserData({ ...userData, [name]: value });
+    if (name === 'telephone') {
+      validateTelephone(value);
+    }
   };
 
-  const validateForm = () => {
-    const errors = {};
-
-    if (!userData.email) {
-      errors.email = "Email is required.";
-    } else if (!validateEmail(userData.email)) {
-      errors.email = "Please enter a valid email address.";
-    }
-
-    if (!userData.firstName) {
-      errors.firstName = "First name is required.";
-    }
-
-    if (!userData.lastName) {
-      errors.lastName = "Last name is required.";
-    }
-
-    if (!userData.address) {
-      errors.address = "Address is required.";
-    }
-
-    if (!userData.postalCode) {
-      errors.postalCode = "Postal code is required.";
-    }
-
-    if (!userData.city) {
-      errors.city = "City is required.";
-    }
-
-    if (!userData.telephone) {
-      errors.telephone = "Telephone is required.";
-    } else if (!validatePhoneNumber(userData.telephone)) {
-      errors.telephone = "Please enter a valid phone number.";
-    }
-
-    setFormErrors(errors);
-
-    return Object.keys(errors).length === 0;
-  };
-
-  const validatePhoneNumber = (phoneNumber) => {
-    
-    const phoneRegex = /^[0-9]{10}$/;
-    return phoneRegex.test(phoneNumber);
-  };
-
-  const validateEmail = (email) => {
-  
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const validateTelephone = (telephone) => {
+    const isValidTelephone = /^\d{10}$/.test(telephone);
+    setFormErrors((prevErrors) => ({ ...prevErrors, telephone: !isValidTelephone }));
   };
 
   const makePayment = async () => {
-    if (!validateForm()) {
-      return;
-    }
-
+    setLoading(true); // Set loading state to true when making payment
     localStorage.setItem("userData", JSON.stringify(userData));
     const stripe = await loadStripe(
       "pk_test_51P3CGpSICUDPT1mUeEL2BbPVngh32BfWfSLY3SKtfHhzkbtFoGxU0e1L1y2MdaJ2s0RhYmggoj5IchxG7ySoJ46D00xZMbIWXX"
     );
 
-    const body = {
-      products: cartItems,
-      userData: userData,
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-    };
+    const body = { products: cartItems, userData: userData };
+    const headers = { "Content-Type": "application/json" };
 
     try {
       const response = await fetch(`${BASE_URL}/create-checkout-session`, {
@@ -134,34 +79,59 @@ function Proced() {
 
       const session = await response.json();
       const result = stripe.redirectToCheckout({ sessionId: session.id });
-      // console.log(result);
     } catch (error) {
-      // console.error("Error making payment:", error);
+      console.error("Error making payment:", error);
+    } finally {
+      setLoading(false); // Reset loading state regardless of success or failure
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const response = await fetch(`${BASE_URL}/user-Address`, {
+    const errors = {};
+    for (const key in userData) {
+      if (!userData[key]) {
+        errors[key] = true;
+      }
+    }
+  
+    // Validate telephone number
+    if (!userData.telephone || !/^\d{10}$/.test(userData.telephone)) {
+      errors['telephone'] = true;
+    }
+  
+    setFormErrors(errors);
+  
+    if (Object.keys(errors).length > 0) {
+      toast.error("Please fill in all the fields correctly.", {
+        autoClose: 1000,
+        position: 'top-center',
+        className: "procedtoast"
+      });
+      return;
+    }
+  
+    // If all fields are filled and telephone is valid, proceed with submission and payment
+    try {
+      const response = await fetch(`${BASE_URL}/user-Address`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
       });
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
-
-   
-      
-
-    await makePayment(); 
+  
+      await makePayment();
+    } catch (error) {
+      console.error("Error submitting form or making payment:", error);
+    }
   };
 
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <div className="proced-container">
         <div className="user-details">
@@ -174,9 +144,8 @@ function Proced() {
                 placeholder="Email"
                 value={userData.email}
                 onChange={handleInputChange}
-                className={formErrors.email ? "input-error" : ""}
+                className={formErrors.email ? "error" : ""}
               />
-              {formErrors.email && <div className="error-message">{formErrors.email}</div>}
             </div>
 
             <div className="user-address-details">
@@ -188,18 +157,16 @@ function Proced() {
                   placeholder="First Name"
                   value={userData.firstName}
                   onChange={handleInputChange}
-                  className={formErrors.firstName ? "input-error" : ""}
+                  className={formErrors.firstName ? "error" : ""}
                 />
-                {formErrors.firstName && <div className="error-message">{formErrors.firstName}</div>}
                 <input
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
                   value={userData.lastName}
                   onChange={handleInputChange}
-                  className={formErrors.lastName ? "input-error" : ""}
+                  className={formErrors.lastName ? "error" : ""}
                 />
-                {formErrors.lastName && <div className="error-message">{formErrors.lastName}</div>}
               </div>
               <div className="address-field">
                 <input
@@ -208,15 +175,15 @@ function Proced() {
                   placeholder="Address"
                   value={userData.address}
                   onChange={handleInputChange}
-                  className={formErrors.address ? "input-error" : ""}
+                  className={formErrors.address ? "error" : ""}
                 />
-                {formErrors.address && <div className="error-message">{formErrors.address}</div>}
                 <input
                   type="text"
                   name="aptSuite"
                   placeholder="Apt,Suite"
                   value={userData.aptSuite}
                   onChange={handleInputChange}
+                  className={formErrors.aptSuite ? "error" : ""}
                 />
               </div>
               <div className="address-personal-field">
@@ -226,9 +193,8 @@ function Proced() {
                   placeholder="Postal code"
                   value={userData.postalCode}
                   onChange={handleInputChange}
-                  className={formErrors.postalCode ? "input-error" : ""}
+                  className={formErrors.postalCode ? "error" : ""}
                 />
-                {formErrors.postalCode && <div className="error-message">{formErrors.postalCode}</div>}
                 <div className="address-picode-tele">
                   <input
                     type="text"
@@ -236,18 +202,16 @@ function Proced() {
                     placeholder="City"
                     value={userData.city}
                     onChange={handleInputChange}
-                    className={formErrors.city ? "input-error" : ""}
+                    className={formErrors.city ? "error" : ""}
                   />
-                  {formErrors.city && <div className="error-message">{formErrors.city}</div>}
                   <input
-                    type="number"
+                    type="text"
                     name="telephone"
                     placeholder="Telephone"
                     value={userData.telephone}
                     onChange={handleInputChange}
-                    className={formErrors.telephone ? "input-error" : ""}
+                    className={formErrors.telephone ? "error" : ""}
                   />
-                  {formErrors.telephone && <div className="error-message">{formErrors.telephone}</div>}
                 </div>
               </div>
 
@@ -269,22 +233,9 @@ function Proced() {
             </div>
 
             <p>Return to cart</p>
-            <button type="submit">Continue To Payment</button>
-            <button type="submit"  disabled={loading}>
-            {loading ? (
-              <>
-              
-                <ClipLoader
-                  color={"#ffffff"}
-                  loading={true}
-                  css={override}
-                  size={25}
-                />
-              </>
-            ) : (
-              "Continue to Payment"
-            )}
-          </button>
+            <button type="submit" disabled={loading}>
+              {loading ? <ClipLoader color={"#ffffff"} loading={true} size={25} /> : "Continue To Payment"}
+            </button>
           </form>
         </div>
 
@@ -335,3 +286,5 @@ function Proced() {
 }
 
 export default Proced;
+
+
