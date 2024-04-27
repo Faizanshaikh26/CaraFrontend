@@ -54,7 +54,7 @@ function App() {
 }
 
 export default App;
-<div className="cart-details">
+{/* <div className="cart-details">
           <h4>Your Cart</h4>
 
           {cartItems.map((item) => (
@@ -93,4 +93,4 @@ export default App;
               </span>
             </p>
           </div>
-        </div>
+        </div> */}
