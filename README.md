@@ -52,7 +52,7 @@
 <h3>Steps</h3>
 <ol>
     <li><strong>Clone the repository:</strong>
-        <pre><code>git clone https://github.com/yourusername/cara-ecommerce-frontend.git</code></pre>
+        <pre><code>git clone https://github.com/Faizanshaikh26/CaraFrontend.git</code></pre>
         <pre><code>cd cara-ecommerce-frontend</code></pre>
     </li>
     <li><strong>Install dependencies:</strong>
@@ -63,7 +63,7 @@
 <h2 id="usage">Usage</h2>
 <p>After installation, you can start the application locally with:</p>
 <pre><code>npm start</code></pre>
-<p>This will launch the development server, and you can view the app at <code>http://localhost:3000</code>.</p>
+<p>This will launch the development server, and you can view the app at <code>http://localhost:5173</code>.</p>
 
 <h2 id="contributing">Contributing</h2>
 <p>Contributions are welcome! If you'd like to improve the project, please fork the repository and submit a pull request. Here’s how you can contribute:</p>
@@ -81,5 +81,5 @@
 <h2 id="contact">Contact</h2>
 <p>For questions or feedback, please contact the maintainers:</p>
 <ul>
-    <li><strong>Faizan</strong> - <a href="https://github.com/Faizan">Email</a> - faizansheikh8209@example.com</li>
+    <li><strong>Faizan</strong> - <a href="https://github.com/Faizanshaikh26">GitHub</a> - faizansheikh8209@example.com</li>
 </ul>
