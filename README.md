@@ -33,7 +33,7 @@
 <p>The Cara E-commerce Frontend is built with:</p>
 <ul>
     <li><strong>React</strong> - for creating reusable UI components</li>
-    <li><strong>Redux</strong> - for state management</li>
+    <li><strong>Context API</strong> - for state management</li>
     <li><strong>React Router</strong> - for client-side routing</li>
     <li><strong>Stripe API</strong> - for payment processing</li>
     <li><strong>Vanila CSS</strong> - for responsive and modular design</li>
@@ -81,5 +81,5 @@
 <h2 id="contact">Contact</h2>
 <p>For questions or feedback, please contact the maintainers:</p>
 <ul>
-    <li><strong>Your Name</strong> - <a href="https://github.com/Faizan">Faizan</a> - faizansheikh8209@example.com</li>
+    <li><strong>Faizan</strong> - <a href="https://github.com/Faizan">Email</a> - faizansheikh8209@example.com</li>
 </ul>
