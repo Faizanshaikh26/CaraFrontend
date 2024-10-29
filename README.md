@@ -1,6 +1,6 @@
 <h1>Cara E-commerce Frontend</h1>
 
-<p>Welcome to the frontend repository of <strong>Cara E-commerce</strong>! This project provides a dynamic and user-friendly interface for our e-commerce platform, allowing users to browse products, add items to their cart, and make purchases seamlessly.</p>
+<p>Welcome to the frontend repository of <strong>Cara E-commerce</strong>! This project provides a dynamic and user-friendly interface for our e-commerce platform, allowing users to browse products, add items to their cart, make purchases, and explore various informational pages.</p>
 
 <h2>Table of Contents</h2>
 <ul>
@@ -19,12 +19,14 @@
 
 <h2 id="features">Features</h2>
 <ul>
-    <li><strong>Product Browsing:</strong> View a wide range of products categorized by type, price, and popularity.</li>
-    <li><strong>Product Search:</strong> Find specific products quickly using the search functionality.</li>
+    <li><strong>Responsive & User-Friendly Design:</strong> Optimized for desktop, tablet, and mobile devices to ensure a seamless user experience.</li>
+    <li><strong>Product Browsing:</strong> View a wide range of products, categorized by type, price, and popularity.</li>
+    <li><strong>User Authentication:</strong> Features login, signup, and reset password functionality for a personalized user experience.</li>
+    <li><strong>Payment Integration:</strong> Secure payment gateway integration with <strong>Stripe</strong> for smooth and safe transactions.</li>
     <li><strong>Shopping Cart:</strong> Add items to a cart, adjust quantities, and view the total price.</li>
     <li><strong>Checkout Process:</strong> Simple and secure checkout flow.</li>
-    <li><strong>User Authentication:</strong> Login, signup, and profile management.</li>
-    <li><strong>Responsive Design:</strong> Optimized for desktops, tablets, and mobile devices.</li>
+    <li><strong>Additional Pages:</strong> Explore more pages such as <strong>Blog</strong>, <strong>About</strong>, <strong>Contact</strong>, and <strong>Shop</strong> for additional information and engagement.</li>
+    <li><strong>Product Details:</strong> Users can view detailed information about each product, including images, descriptions, and pricing.</li>
 </ul>
 
 <h2 id="tech-stack">Tech Stack</h2>
@@ -33,9 +35,9 @@
     <li><strong>React</strong> - for creating reusable UI components</li>
     <li><strong>Redux</strong> - for state management</li>
     <li><strong>React Router</strong> - for client-side routing</li>
-    <li><strong>Axios</strong> - for making API requests</li>
-    <li><strong>Tailwind CSS</strong> - for responsive and modular design</li>
-    <li><strong>Jest</strong> - for unit testing</li>
+    <li><strong>Stripe API</strong> - for payment processing</li>
+    <li><strong>Vanila CSS</strong> - for responsive and modular design</li>
+
 </ul>
 
 <h2 id="installation">Installation</h2>
@@ -79,5 +81,5 @@
 <h2 id="contact">Contact</h2>
 <p>For questions or feedback, please contact the maintainers:</p>
 <ul>
-    <li><strong>Your Name</strong> - <a href="https://github.com/yourusername">@yourusername</a> - youremail@example.com</li>
+    <li><strong>Your Name</strong> - <a href="https://github.com/Faizan">Faizan</a> - faizansheikh8209@example.com</li>
 </ul>
